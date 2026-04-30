@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>云玩家的想法</title>
     <style>
-        /* 最顶部先判断颜色，杜绝闪白屏 */
         body{margin:0;padding:0}
         body.light{background:#fff;color:#000}
         body.dark{background:#1a1a1a;color:#fff}
     </style>
-    <link rel="stylesheet" href="static/style.css">
+    <!-- 改成相对路径，GitHub手机电脑都能正常加载CSS -->
+    <link rel="stylesheet" href="./static/style.css">
 </head>
 <body>
     <div class="top-title">欢迎访问我的网站</div>
@@ -27,11 +27,11 @@
         <span class="lang-tip"></span>
     </div>
 
-    <!-- 最优先执行，杜绝闪屏 -->
     <script>
         let m = localStorage.getItem('mode') || 'light';
         document.body.className = m;
     </script>
-    <script src="static/main.js"></script>
+    <!-- 同样改路径，JS才能正常运行 -->
+    <script src="./static/main.js"></script>
 </body>
 </html>
