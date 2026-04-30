@@ -9,8 +9,7 @@
         body.light{background:#fff;color:#000}
         body.dark{background:#1a1a1a;color:#fff}
     </style>
-    <!-- 改成相对路径，GitHub手机电脑都能正常加载CSS -->
-    <link rel="stylesheet" href="./static/style.css">
+    <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
     <div class="top-title">欢迎访问我的网站</div>
@@ -31,7 +30,6 @@
         let m = localStorage.getItem('mode') || 'light';
         document.body.className = m;
     </script>
-    <!-- 同样改路径，JS才能正常运行 -->
-    <script src="./static/main.js"></script>
+    <script src="static/main.js"></script>
 </body>
 </html>
