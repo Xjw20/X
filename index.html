@@ -2,28 +2,36 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <!-- 手机适配核心代码，修复手机错乱 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>云玩家的想法</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        /* 最顶部先判断颜色，杜绝闪白屏 */
+        body{margin:0;padding:0}
+        body.light{background:#fff;color:#000}
+        body.dark{background:#1a1a1a;color:#fff}
+    </style>
+    <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
     <div class="top-title">欢迎访问我的网站</div>
     <div class="center-text">这只是一个无聊的网站</div>
 
-    <!-- 切换按钮 -->
     <div class="mode-btn" id="modeBtn">
         <div class="sun-icon"></div>
         <div class="moon-icon"></div>
         <span class="tip-text"></span>
     </div>
 
-    <!-- 中英切换按钮 -->
     <div class="lang-btn" id="langBtn">
         <span class="lang-text">中/E</span>
         <span class="lang-tip"></span>
     </div>
 
-    <script src="/static/main.js"></script>
+    <!-- 最优先执行，杜绝闪屏 -->
+    <script>
+        let m = localStorage.getItem('mode') || 'light';
+        document.body.className = m;
+    </script>
+    <script src="static/main.js"></script>
 </body>
 </html>
