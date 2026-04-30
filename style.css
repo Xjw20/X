@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #fff;
+    color: #000;
+    transition: 0.2s ease;
+}
+
+html.dark body {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+.top-title {
+    width: 90%;
+    margin: 30px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+.center-text {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 80px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    border-radius: 15px;
+    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mode-btn {
+    position: fixed;
+    left: 30px;
+    bottom: 30px;
+    width: 50px;
+    height: 50px;
+    background: #eee;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+html.dark .mode-btn {
+    background: #333;
+}
+
+.sun-icon {
+    width: 26px;
+    height: 26px;
+    background: #ffc107;
+    border-radius: 50%;
+    position: relative;
+    display: block;
+}
+.sun-icon::before,
+.sun-icon::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 10px;
+    background: #ffc107;
+    left: 11px;
+    top: -12px;
+    border-radius: 2px;
+}
+.sun-icon::after {
+    transform: rotate(90deg);
+}
+
+.moon-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    box-shadow: 6px -6px 0 #cccccc;
+    display: none;
+}
+html.dark .sun-icon { display: none; }
+html.dark .moon-icon { display: block; }
+
+/* 颜色切换提示：改到右侧 */
+.tip-text {
+    position: absolute;
+    left: 60px;
+    bottom: 15px;
+    background: #333;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    display: none;
+}
+
+/* 中英按钮 上移 */
+.lang-btn {
+    position: fixed;
+    left: 30px;
+    bottom: 90px;
+    width: 50px;
+    height: 50px;
+    background: #eee;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+html.dark .lang-btn {
+    background: #333;
+}
+
+/* 中英提示 正常上方 */
+.lang-tip {
+    position: absolute;
+    bottom: 65px;
+    background: #333;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    display: none;
+}
