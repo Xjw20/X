@@ -1,0 +1,274 @@
+html {
+    background: #ffffff;
+}
+html.dark {
+    background: #121212;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body {
+    min-height: 100vh;
+    background: inherit;
+}
+
+/* 中英文文案 */
+html[lang="zh"] .banner-text::before { content: "欢迎访问我的网站"; }
+html[lang="zh"] .center-text::before { content: "这只是一个无聊的网站"; }
+html[lang="zh"] #langBtn::before { content: "中/E"; }
+html[lang="zh"] .lang-tip::before { content: "切换语言"; }
+html[lang="zh"] .theme-tip::before { content: "切换深浅模式"; }
+
+html[lang="en"] .banner-text::before { content: "Welcome to my little website"; }
+html[lang="en"] .center-text::before { content: "Just a simple warm little page"; }
+html[lang="en"] #langBtn::before { content: "EN/中"; }
+html[lang="en"] .lang-tip::before { content: "Switch Language"; }
+html[lang="en"] .theme-tip::before { content: "Switch Theme"; }
+
+/* 中文时段问候 */
+html[lang="zh"][time-period="midnight"] .greet-text::before { content: "这么晚了，早点休息吧！"; }
+html[lang="zh"][time-period="lateNight"] .greet-text::before { content: "太晚啦！我的眼皮告诉我要睡觉啦！"; }
+html[lang="zh"][time-period="morning"] .greet-text::before { content: "早上好呀，昨晚睡得还好吗?"; }
+html[lang="zh"][time-period="noon"] .greet-text::before { content: "中午好，你也要睡午觉吗?"; }
+html[lang="zh"][time-period="afternoon"] .greet-text::before { content: "你也要来一杯下午茶吗?"; }
+html[lang="zh"][time-period="evening"] .greet-text::before { content: "傍晚了，你也要出去走走吗?"; }
+html[lang="zh"][time-period="night"] .greet-text::before { content: "晚上了喽，早点休息吧！"; }
+
+/* 英文时段问候 */
+html[lang="en"][time-period="midnight"] .greet-text::before { content: "It's so late at night, take a good rest soon~"; }
+html[lang="en"][time-period="lateNight"] .greet-text::before { content: "It's way too late, your eyes must be tired and sleepy~"; }
+html[lang="en"][time-period="morning"] .greet-text::before { content: "Good morning~ Did you have a nice sleep last night?"; }
+html[lang="en"][time-period="noon"] .greet-text::before { content: "Good noon~ Want to have a sweet little nap?"; }
+html[lang="en"][time-period="afternoon"] .greet-text::before { content: "Feel like having a warm cup of afternoon tea?"; }
+html[lang="en"][time-period="evening"] .greet-text::before { content: "The evening is coming, wanna go out for a slow walk?"; }
+html[lang="en"][time-period="night"] .greet-text::before { content: "Night has fallen, have a nice early rest~"; }
+
+/* 布局 */
+.top-banner {
+    width: 100%;
+    padding: 30px 0;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    text-align: center;
+}
+.banner-text {
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.center-box {
+    width: 300px;
+    margin: 80px auto 40px;
+    padding: 40px 20px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    text-align: center;
+}
+.center-text {
+    color: #fff;
+    font-size: 18px;
+}
+
+.greet-box {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 60px;
+}
+.greet-text {
+    font-size: 17px;
+    color: #333;
+    line-height: 1.5;
+}
+html.dark .greet-text {
+    color: #eee;
+}
+
+/* 语言按钮 */
+.lang-btn-box {
+    position: fixed;
+    left: 30px;
+    bottom: 100px;
+}
+.lang-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 6px #ccc;
+    transition: 0.2s ease;
+}
+html.dark .lang-btn {
+    background: #333;
+    color: #fff;
+}
+.lang-btn:hover {
+    transform: scale(1.1);
+}
+.lang-tip {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    font-size: 12px;
+    color: #333;
+    opacity: 0;
+    transition: 0.2s;
+    pointer-events: none;
+}
+html.dark .lang-tip {
+    color: #fff;
+}
+.lang-btn-box:hover .lang-tip {
+    opacity: 1;
+}
+
+/* 主题按钮 */
+.theme-btn-box {
+    position: fixed;
+    left: 30px;
+    bottom: 30px;
+}
+.theme-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: #ffffff;
+    cursor: pointer;
+    transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 6px #ccc;
+}
+.theme-btn::after {
+    content: '';
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #ffc107;
+    transition: inherit;
+}
+html.dark .theme-btn {
+    background: #222;
+    box-shadow: 0 0 6px #444;
+}
+html.dark .theme-btn::after {
+    background: transparent;
+    box-shadow: 6px 0 0 #e2e2e2, 8px 0 0 #e2e2e2;
+}
+.theme-btn:hover {
+    transform: scale(1.1);
+}
+.theme-tip {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    font-size: 12px;
+    color: #333;
+    opacity: 0;
+    transition: 0.2s;
+    pointer-events: none;
+}
+html.dark .theme-tip {
+    color: #fff;
+}
+.theme-btn-box:hover .theme-tip {
+    opacity: 1;
+}
+
+/* 调试面板 */
+.debug-panel {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #999;
+    z-index: 9999;
+    text-align: center;
+}
+html.dark .debug-panel {
+    background: #2b2b2b;
+}
+.debug-panel h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+html.dark .debug-panel h3 {
+    color: #eee;
+}
+.debug-panel p {
+    margin-bottom: 10px;
+    color: #555;
+}
+html.dark .debug-panel p {
+    color: #ccc;
+}
+.debug-panel input {
+    width: 80px;
+    padding: 6px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+.debug-panel button {
+    padding: 8px 16px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #6366f1;
+    color: white;
+}
+
+/* 移动端 */
+@media screen and (max-width: 768px) {
+    .top-banner { padding: 20px 15px; }
+    .banner-text { font-size: 20px; }
+    .center-box {
+        width: 90%;
+        max-width: 280px;
+        margin: 60px auto 30px;
+        padding: 35px 15px;
+    }
+    .center-text { font-size: 16px; }
+    .greet-box { padding: 0 20px; margin-bottom: 80px; }
+    .greet-text { font-size: 16px; }
+
+    .lang-btn-box { left: 60px; bottom: 90px; }
+    .theme-btn-box { left: 60px; bottom: 25px; }
+
+    .lang-btn, .theme-btn { width: 40px; height: 40px; }
+    .theme-btn::after { width: 20px; height: 20px; }
+
+    .lang-tip, .theme-tip {
+        left: auto;
+        right: 100%;
+        margin-right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0,0,0,0.7);
+        color: #fff !important;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    .debug-panel { width: 85%; padding: 20px; }
+}
