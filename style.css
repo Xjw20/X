@@ -250,16 +250,29 @@ html.dark .debug-panel p {
     .greet-box { padding: 0 20px; margin-bottom: 80px; }
     .greet-text { font-size: 16px; }
 
-    .lang-btn-box { left: 60px; bottom: 90px; }
-    .theme-btn-box { left: 60px; bottom: 25px; }
+    .lang-btn-box {
+        left: 20px;
+        bottom: 90px;
+    }
+    .theme-btn-box {
+        left: 20px;
+        bottom: 25px;
+    }
 
-    .lang-btn, .theme-btn { width: 40px; height: 40px; }
-    .theme-btn::after { width: 20px; height: 20px; }
+    .lang-btn, .theme-btn {
+        width: 40px;
+        height: 40px;
+    }
+    .theme-btn::after {
+        width: 20px;
+        height: 20px;
+    }
 
+    /* 提示语在按钮右侧 */
     .lang-tip, .theme-tip {
-        left: auto;
-        right: 100%;
-        margin-right: 8px;
+        left: 100%;
+        margin-left: 8px;
+        right: auto;
         top: 50%;
         transform: translateY(-50%);
         background: rgba(0,0,0,0.7);
