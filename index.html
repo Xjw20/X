@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        window.__getTimePeriod = function(hour) {
+            if (hour < 3) return 'midnight';
+            if (hour < 6) return 'lateNight';
+            if (hour < 11) return 'morning';
+            if (hour < 13) return 'noon';
+            if (hour < 18) return 'afternoon';
+            if (hour < 19) return 'evening';
+            return 'night';
+        };
+
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+        }
+
+        var storedLang = localStorage.getItem('lang');
+        document.documentElement.setAttribute('lang', storedLang || 'zh');
+
+        var initHour = new Date().getHours();
+        document.documentElement.setAttribute('time-period', window.__getTimePeriod(initHour));
+    </script>
+    <title>云玩家的想法</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 首次访问声明遮罩 -->
+    <div class="consent-overlay" id="consentOverlay">
+        <div class="consent-box">
+            <div class="consent-text consent-zh">
+                本站会检测您所在的国家（用于自动切换语言）、访问时区（显示本地化问候语）。<br>
+                这些数据仅存储在您的浏览器本地，不会上传至任何服务器。<br>
+                点击“同意”表示您已知晓并同意上述功能。
+            </div>
+            <div class="consent-text consent-en">
+                This site detects your country (for auto-language switching) and timezone (for localized greetings).<br>
+                These data are only stored locally in your browser and never uploaded.<br>
+                Click "Agree" to acknowledge and accept these features.
+            </div>
+            <button class="consent-btn" id="consentBtn"></button>
+        </div>
+    </div>
+
+    <div class="top-banner">
+        <span class="banner-text" role="heading" aria-level="1"></span>
+    </div>
+
+    <div class="center-box">
+        <span class="center-text"></span>
+    </div>
+
+    <div class="greet-box">
+        <span class="greet-text" aria-live="polite"></span>
+    </div>
+
+    <div class="lang-btn-box">
+        <button class="lang-btn" id="langBtn" aria-label="切换语言"></button>
+        <div class="lang-tip" aria-hidden="true"></div>
+    </div>
+
+    <div class="theme-btn-box">
+        <button class="theme-btn" id="themeBtn" aria-label="切换深浅模式"></button>
+        <div class="theme-tip" aria-hidden="true"></div>
+    </div>
+
+    <div class="debug-panel" id="debugPanel" role="dialog" aria-modal="true" aria-label="调试面板">
+        <button class="debug-close-btn" id="debugCloseBtn" aria-label="关闭调试面板"></button>
+
+        <h3>调试</h3>
+        <p>手动调节小时 (0-23)</p>
+        <input type="number" id="hourInput" min="0" max="23" value="12" aria-label="小时">
+        <button id="setHourBtn">确认设置时间</button>
+        <button id="resetHourBtn">恢复真实时间</button>
+
+        <p style="margin-top: 15px;">🌍 检测时区：<span id="timezoneInfo" style="font-weight:bold;">...</span></p>
+
+        <p style="margin-top: 10px;">🕒 模拟时区</p>
+        <select id="timezoneSelect" aria-label="选择模拟时区">
+            <option value="auto">自动 (本地时区)</option>
+            <optgroup label="亚洲">
+                <option value="480">UTC+8 上海</option>
+                <option value="330">UTC+5:30 印度</option>
+                <option value="540">UTC+9 东京</option>
+            </optgroup>
+            <optgroup label="欧洲">
+                <option value="0">UTC+0 伦敦</option>
+                <option value="60">UTC+1 巴黎</option>
+                <option value="120">UTC+2 赫尔辛基</option>
+            </optgroup>
+            <optgroup label="非洲">
+                <option value="0">UTC+0 卡萨布兰卡</option>
+                <option value="120">UTC+2 开罗</option>
+            </optgroup>
+            <optgroup label="北美洲">
+                <option value="-300">UTC-5 纽约</option>
+                <option value="-480">UTC-8 洛杉矶</option>
+            </optgroup>
+            <optgroup label="南美洲">
+                <option value="-180">UTC-3 布宜诺斯艾利斯</option>
+                <option value="-300">UTC-5 利马</option>
+            </optgroup>
+            <optgroup label="大洋洲">
+                <option value="600">UTC+10 悉尼</option>
+                <option value="720">UTC+12 奥克兰</option>
+            </optgroup>
+        </select>
+
+        <p style="margin-top: 10px;">模拟访问地区</p>
+        <select id="countrySelect" aria-label="选择地区">
+            <option value="auto">自动检测</option>
+            <option value="CN">中国</option>
+            <option value="OTHER">海外</option>
+        </select>
+
+        <button id="clearDataBtn" class="danger-btn">清除本地数据并刷新</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
