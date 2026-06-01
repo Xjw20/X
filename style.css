@@ -1,0 +1,321 @@
+:root {
+    --bg-primary: #ffffff;
+    --text-primary: #333333;
+    --accent-primary: #6366f1;
+    --accent-secondary: #ec4899;
+    --shadow-light: #cccccc;
+    --border-radius: 16px;
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+}
+
+html {
+    background: var(--bg-primary);
+}
+
+html.dark {
+    background: #121212;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: color var(--transition-normal), transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+body {
+    min-height: 100vh;
+    background: inherit;
+}
+
+html[lang="zh"] .banner-text::before { content: "欢迎访问我的网站"; }
+html[lang="zh"] .center-text::before { content: "这只是一个无聊的网站"; }
+html[lang="zh"] #langBtn::before { content: "中/E"; }
+html[lang="zh"] .lang-tip::before { content: "切换语言"; }
+html[lang="zh"] .theme-tip::before { content: "切换深浅模式"; }
+html[lang="zh"] .join-text::before { content: "加入啊哈"; }
+html[lang="zh"] .uid-label::before { content: "我的哔哩哔哩账号UID："; }
+html[lang="zh"] .copy-btn::before { content: "复制"; }
+
+html[lang="en"] .banner-text::before { content: "Welcome to my little website"; }
+html[lang="en"] .center-text::before { content: "Just a simple warm little page"; }
+html[lang="en"] #langBtn::before { content: "EN/中"; }
+html[lang="en"] .lang-tip::before { content: "Switch Language"; }
+html[lang="en"] .theme-tip::before { content: "Switch Theme"; }
+html[lang="en"] .join-text::before { content: "Join Aha"; }
+html[lang="en"] .uid-label::before { content: "My Bilibili UID: "; }
+html[lang="en"] .copy-btn::before { content: "Copy"; }
+
+html[lang="zh"][time-period="midnight"] .greet-text::before { content: "这么晚了，早点休息吧！"; }
+html[lang="zh"][time-period="lateNight"] .greet-text::before { content: "太晚啦！我的眼皮告诉我要睡觉啦！"; }
+html[lang="zh"][time-period="morning"] .greet-text::before { content: "早上好呀，昨晚睡得还好吗?"; }
+html[lang="zh"][time-period="noon"] .greet-text::before { content: "中午好，你也要睡午觉吗?"; }
+html[lang="zh"][time-period="afternoon"] .greet-text::before { content: "你也要来一杯下午茶吗?"; }
+html[lang="zh"][time-period="evening"] .greet-text::before { content: "傍晚了，你也要出去走走吗?"; }
+html[lang="zh"][time-period="night"] .greet-text::before { content: "晚上了喽，早点休息吧！"; }
+
+html[lang="en"][time-period="midnight"] .greet-text::before { content: "It's so late at night, take a good rest soon~"; }
+html[lang="en"][time-period="lateNight"] .greet-text::before { content: "It's way too late, your eyes must be tired and sleepy~"; }
+html[lang="en"][time-period="morning"] .greet-text::before { content: "Good morning~ Did you have a nice sleep last night?"; }
+html[lang="en"][time-period="noon"] .greet-text::before { content: "Good noon~ Want to have a sweet little nap?"; }
+html[lang="en"][time-period="afternoon"] .greet-text::before { content: "Feel like having a warm cup of afternoon tea?"; }
+html[lang="en"][time-period="evening"] .greet-text::before { content: "The evening is coming, wanna go out for a slow walk?"; }
+html[lang="en"][time-period="night"] .greet-text::before { content: "Night has fallen, have a nice early rest~"; }
+
+.top-banner {
+    width: 100%;
+    padding: 30px 0;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    text-align: center;
+}
+
+.banner-text {
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.center-box {
+    width: 300px;
+    margin: 80px auto 40px;
+    padding: 40px 20px;
+    border-radius: var(--border-radius);
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    text-align: center;
+}
+
+.center-text {
+    color: #fff;
+    font-size: 18px;
+}
+
+.greet-box {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.greet-text {
+    font-size: 17px;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+html.dark .greet-text {
+    color: #eee;
+}
+
+.join-uid-box {
+    width: 340px;
+    margin: 0 auto 100px;
+    padding: 30px 25px;
+    border-radius: var(--border-radius);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    text-align: center;
+}
+
+.join-text-wrapper {
+    margin-bottom: 20px;
+}
+
+.join-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent-primary);
+}
+
+.uid-wrapper {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+html.dark .uid-wrapper {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.uid-content {
+    line-height: 1.6;
+    text-align: center;
+}
+
+.uid-label {
+    font-size: 15px;
+    color: var(--text-primary);
+}
+
+html.dark .uid-label {
+    color: #eee;
+}
+
+html.dark .join-text {
+    color: #a5b4fc;
+}
+
+.uid-number {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent-primary);
+    user-select: text;
+    word-break: break-all;
+}
+
+html.dark .uid-number {
+    color: #a5b4fc;
+}
+
+.copy-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.copy-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.copy-btn:active {
+    transform: scale(0.98);
+}
+
+.copy-btn.copied {
+    background: #10b981;
+}
+
+.floating-btn-box {
+    position: fixed;
+    left: 30px;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.floating-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background: var(--bg-primary);
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 6px var(--shadow-light);
+    transition: var(--transition-fast);
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+}
+
+.floating-btn-tip {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    font-size: 12px;
+    color: var(--text-primary);
+    opacity: 0;
+    transition: var(--transition-fast);
+    pointer-events: none;
+}
+
+.lang-btn-box { bottom: 70px; }
+.theme-btn-box { bottom: 15px; }
+
+html.dark .floating-btn {
+    background: #333;
+    color: #fff;
+}
+
+html.dark .floating-btn-tip {
+    color: #fff;
+}
+
+.lang-btn-box:hover .lang-tip,
+.theme-btn-box:hover .theme-tip {
+    opacity: 1;
+}
+
+.theme-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-btn::after {
+    content: '';
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #ffc107;
+    transition: inherit;
+}
+
+html.dark .theme-btn::after {
+    background: transparent;
+    box-shadow: 6px 0 0 #e2e2e2, 8px 0 0 #e2e2e2;
+}
+
+@media screen and (max-width: 768px) {
+    .top-banner { padding: 20px 15px; }
+    .banner-text { font-size: 20px; }
+    .center-box {
+        width: 90%;
+        max-width: 280px;
+        margin: 60px auto 30px;
+        padding: 35px 15px;
+    }
+    .center-text { font-size: 16px; }
+    .greet-box { padding: 0 20px; margin-bottom: 60px; }
+    .greet-text { font-size: 16px; }
+
+    .join-uid-box {
+        width: 90%;
+        max-width: 300px;
+        padding: 25px 20px;
+        margin-bottom: 60px;
+    }
+    .join-text { font-size: 16px; }
+    .uid-wrapper { padding: 12px; }
+    .uid-label, .uid-number { font-size: 14px; }
+    .copy-btn {
+        padding: 7px 18px;
+        font-size: 13px;
+    }
+
+    .floating-btn-box { left: 20px; }
+    .lang-btn-box { bottom: 70px; }
+    .theme-btn-box { bottom: 15px; }
+
+    .floating-btn { width: 40px; height: 40px; }
+    .theme-btn::after { width: 20px; height: 20px; }
+
+    .floating-btn-tip {
+        left: 100%;
+        margin-left: 8px;
+        right: auto;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0,0,0,0.7);
+        color: #fff !important;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+}
