@@ -118,29 +118,13 @@
         const themeBtn = document.getElementById('themeBtn');
         const langBtn = document.getElementById('langBtn');
         const copyBtn = document.getElementById('copyBtn');
-        const kuaidaBtn = document.getElementById('kuaidaBtn');
-        const kuaidaModal = document.getElementById('kuaidaModal');
-        const kuaidaStart = document.getElementById('kuaidaStart');
+       
 
         themeBtn?.addEventListener('click', toggleTheme);
         langBtn?.addEventListener('click', toggleLanguage);
         copyBtn?.addEventListener('click', copyUid);
 
-        kuaidaBtn?.addEventListener('click', () => {
-            kuaidaModal?.classList.add('show');
-            kuaidaModal?.setAttribute('aria-hidden', 'false');
-        });
-
-        kuaidaStart?.addEventListener('click', () => {
-            window.location.href = 'https://Xjw20.github.io/X/page2';
-        });
-
-        kuaidaModal?.addEventListener('click', (e) => {
-            if (e.target === kuaidaModal) {
-                kuaidaModal.classList.remove('show');
-                kuaidaModal.setAttribute('aria-hidden', 'true');
-            }
-        });
+       
 
         syncTimePeriod();
         autoDetectLanguage();
